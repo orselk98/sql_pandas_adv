@@ -1,7 +1,7 @@
 import pyodbc
-import pandas as pd
 from dotenv import load_dotenv
 import os
+
 
 load_dotenv()
 
@@ -18,8 +18,5 @@ connection = pyodbc.connect(
     f"PWD={password};"
     f"TrustServerCertificate=yes;"
     f"Encrypt=no;"
-)
 
-# test it
-df = pd.read_sql("SELECT TOP 5 * FROM Sales.SalesOrderHeader", connection)
-print(df)
+)
