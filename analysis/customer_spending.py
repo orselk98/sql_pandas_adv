@@ -1,10 +1,16 @@
-use AdventureWorks
-GO
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-SELECT Name,
-       FirstName,
-       LastName,
-       TotalSpending
+
+from db_connection import connection
+import pandas as pd
+
+df = pd.read_sql("""
+           SELECT Name,
+                  FirstName,
+                  LastName,
+                  TotalSpending
 From (
 SELECT  st.Name,
         p.FirstName,
@@ -21,3 +27,6 @@ join Person.Person as p on c.PersonID = p.BusinessEntityID
 group by st.Name,p.FirstName,p.LastName
 ) as ranked
 where RowNum <= 10
+""", connection)
+
+print (df)
