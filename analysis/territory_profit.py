@@ -21,6 +21,6 @@ ORDER by ProfitPercentage desc
 
 #create the bar chart
 
-fig = px.bar(df, x='Name', y='ProfitPercentage', title='Profit Percentage by Sales Territory')
-fig.show()
-fig.write_html("dashboard/territory_profit.html")
+#fig = px.bar(df, x='Name', y='ProfitPercentage', title='Profit Percentage by Sales Territory')
+#fig.show()
+#fig.write_html("dashboard/territory_profit.html")
